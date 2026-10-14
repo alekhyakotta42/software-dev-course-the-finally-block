@@ -45,18 +45,29 @@ Step 4: Test Your Solution
 function processFile(fileName, fileData) {
   try {
     // TODO: Add input validation here
-    
+    if (typeof fileName !== "string" || fileName.trim() === "") {
+    throw new Error("Invalid file name: fileName must be a non-empty string.");
+  }
+  if (typeof fileData !== "string" || fileData.trim() === "") {
+      throw new Error("Invalid file data: fileData must be a non-empty string.");
+    }
     // TODO: Implement simulated file processing here
     console.log(`Processing file: ${fileName}`);
     console.log(`File content: ${fileData}`);
     
     // TODO: Add simulated file operations (reading/writing)
-    
+    console.log(`Reading and writing operations completed successfully for ${fileName}.`);
+
   } catch (err) {
     // TODO: Implement error handling
+    console.error(`An error occurred: ${err.message}`);
     console.error(err);
   }
   // TODO: Implement a finally block to close resources
+  finally {
+    // TODO: Implement a finally block to close resources
+    console.log("Cleanup complete: Closing file streams and releasing resources.");
+  }
 }
 
 // ============================================
